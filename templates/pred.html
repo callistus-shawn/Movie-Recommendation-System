@@ -1,0 +1,46 @@
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/pred.css"/>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="title">
+            <div class="content">
+                <h1>MovieVerse</h1>
+                <h2>Movies Of Your Taste</h2>
+                
+                <form action="predict" method="post">
+                 <br></br>
+                  <br></br>
+                    <h3>Ready to watch? Enter your Favourites and we'll recommend you some more.</h3>
+                    <div class="mov">
+                        <input type="text" name="movie" placeholder="Enter Movie">
+                        <button type="Submit">Recommend</button>
+                    </div>
+                    {{err}}
+                </form>
+                <br/><br/>
+               <ul class="rounded-list"> 
+                {% for user in users %} 
+                    <li style="opacity:0; transition: 200ms all">{{ user }}</li> 
+                {% endfor %} 
+               </ul> 
+              
+            </div>
+       
+        </div>
+    </div>
+    
+    <script>
+        const items = document.querySelectorAll(".rounded-list li");
+        console.log(items)
+        
+        for (var i = 0; i < items.length; i++) {
+            const li = items[i]
+            setTimeout(() => { li.style.opacity = "1" }, 200*i)
+        }
+    </script>
+   
+</body>
+</html>
